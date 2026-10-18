@@ -40,7 +40,12 @@ jobs:
           [ -n "$SIGN_KEY_PASS" ] || { echo "::error::secret SIGN_KEY_PASS not set"; exit 1; }
           echo "signing secrets present"
 
-
+  build-lkm:
+    uses: ./.github/workflows/build-lkm.yml
+    with:
+      expected_size2: ""
+      expected_hash2: ""
+    secrets: inherit
 
   build-ksuinit:
     uses: ./.github/workflows/ksuinit.yml
