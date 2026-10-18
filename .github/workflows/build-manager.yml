@@ -421,10 +421,6 @@ jobs:
             -t release \
             -a arm64-v8a \
             -a x86_64 \
-            -K "$SIGN_KEYSTORE_FILE" \
-            -A "$SIGN_KEY_ALIAS" \
-            -P "$SIGN_KEYSTORE_PASSWORD" \
-            -S "$SIGN_KEY_PASSWORD" \
             --strip
 
       - name: Upload build artifact
