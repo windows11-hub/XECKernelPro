@@ -93,12 +93,7 @@ ccflags-y += -I$(KSU_KERNEL_DIR) -I$(KSU_KERNEL_DIR)/include
 # plain `obj-$(CONFIG_KPM)` (obj-y) would be silently dropped and the loader
 # would never make it into kernelsu.ko. Define the C macro as well so that
 # supercall/dispatch.c registers the KSU_IOCTL_KPM handler.
-kernelsu-objs += kpm/compact.o
-kernelsu-objs += kpm/insn.o
-kernelsu-objs += kpm/kpm.o
-kernelsu-objs += kpm/relo.o
-kernelsu-objs += kpm/super_access.o
-ccflags-y += -DCONFIG_KPM=1
+
 
 obj-$(CONFIG_KSU) += kernelsu.o
 
