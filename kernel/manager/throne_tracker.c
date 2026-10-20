@@ -246,7 +246,7 @@ static bool is_uid_exist(uid_t uid, char *package, void *data)
     }
     return exist;
 }
-
+#ifndef CONFIG_KSU_DISABLE_MANAGER
 void track_throne(bool prune_only)
 {
     struct file *fp = filp_open(SYSTEM_PACKAGES_LIST_PATH, O_RDONLY, 0);
@@ -357,3 +357,4 @@ void __exit ksu_throne_tracker_exit()
         kfree(pos);
     }
 }
+#endif // CONFIG_KSU_DISABLE_MANAGER
