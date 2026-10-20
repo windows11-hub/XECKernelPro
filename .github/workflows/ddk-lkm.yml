@@ -161,9 +161,9 @@ jobs:
         BUILD_LOG=$(mktemp)
         set +e
         if [ "$kmi" == "android17-6.18" ]; then
-          make -C $KDIR M=$MDIR MO=$MDIR compile_commands.json modules CONFIG_KSU=m CONFIG_KPM=y CONFIG_KSU_X86_PATCH_SYSCALL_DISPATCHER=y $EXTRA_ARGS CFLAGS_MODULE=-DCONFIG_KSU_DISABLE_MANAGER >"$BUILD_LOG" 2>&1
+          make -C $KDIR M=$MDIR MO=$MDIR compile_commands.json modules CONFIG_KSU=m CONFIG_KPM=n CONFIG_KSU_X86_PATCH_SYSCALL_DISPATCHER=y $EXTRA_ARGS CFLAGS_MODULE=-DCONFIG_KSU_DISABLE_MANAGER >"$BUILD_LOG" 2>&1
         else
-          make -C $KDIR M=$MDIR src=$MDIR compile_commands.json modules CONFIG_KSU=m CONFIG_KPM=y CONFIG_KSU_X86_PATCH_SYSCALL_DISPATCHER=y $EXTRA_ARGS CFLAGS_MODULE=-DCONFIG_KSU_DISABLE_MANAGER >"$BUILD_LOG" 2>&1
+          make -C $KDIR M=$MDIR src=$MDIR compile_commands.json modules CONFIG_KSU=m CONFIG_KPM=n CONFIG_KSU_X86_PATCH_SYSCALL_DISPATCHER=y $EXTRA_ARGS CFLAGS_MODULE=-DCONFIG_KSU_DISABLE_MANAGER >"$BUILD_LOG" 2>&1
         fi
         BUILD_RC=$?
         set -e
