@@ -82,6 +82,7 @@ jobs:
         KPM_SYMS=$($NM kernelsu.ko | grep -E ' [Tt] sukisu_(handle_kpm|kpm_control|kpm_load_module_path|kpm_version)$' || true)
         echo "$KPM_SYMS"
         if [ "$(echo "$KPM_SYMS" | grep -c ' [Tt] sukisu_')" -lt 4 ]; then
+        echo "::error ... KPM loader missing"
         fi
 
         # Create output directory in GitHub workspace
